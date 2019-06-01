@@ -13,12 +13,12 @@ interface TypeDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun InsertType(type: Type)
 
-    @Query("SELECT name FROM TYPE_TABLE")
+    @Query("SELECT * FROM TYPE_TABLE")
     fun getTypes(): LiveData<List<Type>>
 
-    @Query("SELECT name FROM TYPE_TABLE WHERE name=:nameType")
+    @Query("SELECT * FROM TYPE_TABLE WHERE name=:nameType")
     fun getType(nameType: String): LiveData<List<Type>>
 
-    @Query("SELECT name FROM TYPE_TABLE WHERE name=:IDType")
+    @Query("SELECT * FROM TYPE_TABLE WHERE name=:IDType")
     fun getType(IDType: Int): LiveData<List<Type>>
 }

@@ -14,10 +14,10 @@ interface PokemonXTypeDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun InsertPXT(pxt: PokemonXType)
 
-    @Query("SELECT * FROM pokemon_table INNER JOIN pokemon_x_type ON id=pokemonID WHERE id=:IDPokemon")
-    fun getPokemon(IDPokemon: Int): LiveData<List<Pokemon>>
+    @Query("SELECT * FROM pokemon_table INNER JOIN pokemon_x_type ON id=pokemonID WHERE typeID=:IDType")
+    fun getPokemon(IDType: Int): LiveData<List<Pokemon>>
 
-    @Query("SELECT * FROM type_table INNER JOIN pokemon_x_type ON id=typeID  WHERE id=:IDType")
-    fun getType(IDType: Int): LiveData<List<Type>>
+    @Query("SELECT * FROM type_table INNER JOIN pokemon_x_type ON id=typeID  WHERE pokemonID=:IDPokemon")
+    fun getType(IDPokemon: Int): LiveData<List<Type>>
 
 }

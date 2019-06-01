@@ -1,10 +1,7 @@
 package com.example.pokefull.database.daos
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.pokefull.database.entities.Pokemon
 
 @Dao
@@ -22,4 +19,7 @@ interface PokemonDao {
 
     @Query("SELECT * FROM POKEMON_TABLE WHERE name = :name")
     fun getPokemon(name: String): LiveData<List<Pokemon>>
+
+    @Delete
+    suspend fun delete()
 }
