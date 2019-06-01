@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import com.squareup.moshi.Json
 
 
 @Entity(
@@ -23,6 +24,6 @@ import androidx.room.PrimaryKey
 )
 
 data class PokemonXType(
-    @ColumnInfo(name = "pokemonID") val pokemonId: Int,
-    @ColumnInfo(name = "typeID") val typeId: Int
+    @field:Json(name = "pokemonID")@ColumnInfo(name = "pokemonID") val pokemonId: Int,
+    @field:Json(name = "typeID")@ColumnInfo(name = "typeID") val typeId: Int
 )
