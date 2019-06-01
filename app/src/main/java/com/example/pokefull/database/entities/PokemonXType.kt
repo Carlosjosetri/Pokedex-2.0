@@ -23,6 +23,6 @@ import androidx.room.PrimaryKey
 )
 
 data class PokemonXType(
-    @ColumnInfo(name = "pokemonID") val pokemonid: Int,
-    @ColumnInfo(name = "typeID") val typeid: Int
+    @ColumnInfo(name = "pokemonID") val pokemonId: Int,
+    @ColumnInfo(name = "typeID") val typeId: Int
 )
